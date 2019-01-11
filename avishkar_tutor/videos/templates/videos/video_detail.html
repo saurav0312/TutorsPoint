@@ -1,0 +1,72 @@
+{% extends 'about/base.html' %}
+{% block title %}Detail{% endblock %}
+{% block body %}
+<br><br>
+    <!--<style type="text/css">
+    div#video_controls_bar{background: #333;padding:10px; color: #ccc;}
+    div#video_player_box{background: #000; width: 640px;margin: 0px;}
+    </style>
+    <script>
+    var vid,playbtn,seekslider,curtimetext,durtimetext;
+    function initializePlayer() {
+        //Set object references
+        vid=document.getElementById("my_video");
+        playbtn=document.getElementById("playpausebtn");
+        seekslider=document.getElementById("seekslider");
+        curtimetext=document.getElementById("curtimetext");
+        durtimetext=document.getElementById("durtimetext");
+        //add event listeners
+        playbtn.addEventListener("click",playPause,false);
+        seekslider.addEventListener("change",vidSeek,false);
+        vid.addEventListener("timeupdate",seektimeupdate,false);
+    }
+    window.onload=initializePlayer;
+
+    function playPause() {
+        if(vid.paused){
+            vid.play();
+            playbtn.innerHTML="Pause";
+        }
+        else{
+            vid.pause();
+            playbtn.innerHTML="Play";
+        }
+    }
+    function vidSeek() {
+        var seekto=vid.duration * (seekslider.value/100);
+        vid.currentTime=seekto;
+
+    }
+    function seektimeupdate() {
+        var nt=vid.currentTime * (100/vid.duration);
+        seekslider.value=nt;
+        var curmins=Math.floor(vid.currentTime/60);
+        var cursecs=Math.floor(vid.currentTime-curmins*60);
+        var durmins=Math.floor(vid.duration/60);
+        var dursecs=Math.round(vid.duration- durmins*60);
+        if(cursecs<10){cursecs="0"+cursecs;}
+        if(dursecs<10){dursecs="0"+dursecs;}
+        if(curmins<10){curmins="0"+curmins;}
+        if(durmins<10){durmins="0"+durmins;}
+        curtimetext.innerHTML=curmins+":"+cursecs;
+        durtimetext.innerHTML=durmins+":"+dursecs;
+
+    }
+    </script>-->
+
+{% for subvideos in all_course.video_set.all %}
+    <!--<div id="video_player_box">-->
+    <video class="vid" controls height="360" width="640">
+        <source src="{{ subvideos.videofile.url }}" type="video/mp4"/>
+        </video><br>
+    <h2>{{ subvideos.name }} <b>-&nbsp;</b>{{ subvideos.course }}</h2>
+    <!--<div id="video_controls_bar">
+    <button id="playpausebtn">Play</button>
+    <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+        <span id="curtimetext"></span>/<span id="durtimetext"></span>
+    </div>
+    </div>-->
+    <br><br>
+{% endfor %}
+</br>
+{% endblock %}

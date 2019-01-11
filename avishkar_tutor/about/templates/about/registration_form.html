@@ -1,0 +1,26 @@
+<title>Sign In</title>
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{%  static 'about/style.css' %}"/>
+<ul class="ul-list">
+        <li class="list"><a title="Sign Up" draggable="true" href="{% url 'about:signup' %}">Sign Up</a></li>
+
+</ul>
+
+
+<h3><big><center>Teacher Sign In</center></big></h3><br>
+<form action="/about/auth/" method="post" style="margin-left:40%">
+<label for="username">Username:</label>
+    <input required="" type="text" name="username" value="" id="username"><br><br>
+    <label for="password">Password:&nbsp;</label>
+    <input required="" type="password" name="password" value="" id="password"><br><br>
+    <label for="email">Email:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="email" name="email" required="" value="" id="email"><br><br>
+
+<input type="Submit" value="Log In" style="margin-left: 10%">
+</form>
+
+<div style="position: relative;width: 300px;height: 400px">
+    <div style="position: absolute;bottom: 5px">
+        <h3 class= "pos">&copy;All Rights Reserved 2017</h3>
+    </div>
+    </div>

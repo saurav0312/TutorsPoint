@@ -1,0 +1,28 @@
+{% extends 'about/student_base.html' %}
+{% block title %}Search{% endblock %}
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{%  static 'about/style.css' %}"/>
+{% block body %}
+<!--
+<ul class="ul-list">
+    <li class="list"><a title="About" draggable="true" href="{% url 'about:about' %}">About</a></li>
+    <li class="list"><a title="Gallery" draggable="true" href="{% url 'gallery:gallery' %}">Gallery</a></li>
+    <li class="list"><a title="Programming Videos" draggable="true" href="{% url 'videos:course' %}">Programming Videos</a></li>
+    <li class="list"><a title="Contact" draggable="true" href="{% url 'contact:contact' %}">Contact</a></li>
+    <li class="list"><a title="Logout" draggable="true" href="{% url 'logout:logout' %}">Logout</a></li>
+    <li class="list"><a title="Sign Up" draggable="true" href="{% url 'about:signup' %}">Sign Up</a></li>
+    <li class="list"><a title="Search" draggable="true" href="{% url 'videos:search' %}">Search</a></li>
+</ul>
+-->
+<h3 align="center" draggable="true"><b>Search For Videos</b></h3>
+<form method="POST">
+    <label draggable="true">Search:&nbsp;</label>
+<input type="text" name="text"/><br><br>
+<input type="submit" name="submit" value="Submit"/>
+</form>
+<div style="position: relative;width: 300px;height: 400px">
+    <div style="position: absolute;bottom: 5px">
+        <h3 class= "pos">&copyAll Rights Reserved 2017</h3>
+    </div>
+    </div>
+{% endblock %}

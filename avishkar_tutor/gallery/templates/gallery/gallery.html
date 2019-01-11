@@ -1,0 +1,32 @@
+{% extends 'about/student_base.html' %}
+{% block title %}Gallery{% endblock %}
+{% block body %}
+    <br>
+    {% for all_student in all_student  %}
+        <img class="myImg" title="{{ all_student.name }}" src="{{ all_student.reg_no.url }}" height="250" width="250" style=" border:5px solid #dddddd">&nbsp;
+    {% endfor %}
+
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+        </div>
+         <script>
+
+                var img=document.getElementsByClassName('myImg');
+                var i;
+                for (i = 0; i < img.length; i++) {
+                    var modal=document.getElementById('myModal');
+                    var modalImg=document.getElementById("img01");
+                    img[i].onclick=function () {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                }
+                var span=document.getElementsByClassName("close")[0];
+                span.onclick=function () {
+                    modal.style.display="none";
+                }
+                }
+         </script>
+{% endblock %}

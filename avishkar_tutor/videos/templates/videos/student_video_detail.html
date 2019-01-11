@@ -1,0 +1,95 @@
+{% extends 'about/student_base.html' %}
+{% block title %}Detail{% endblock %}
+{% block body %}
+<br><br>
+    <!--<style type="text/css">
+    div#video_controls_bar{background: #333;padding:10px; color: #ccc;}
+    div#video_player_box{background: #000; width: 640px;margin: 0px;}
+    </style>
+    <script>
+    var vid,playbtn,seekslider,curtimetext,durtimetext;
+    function initializePlayer() {
+        //Set object references
+        vid=document.getElementById("my_video");
+        playbtn=document.getElementById("playpausebtn");
+        seekslider=document.getElementById("seekslider");
+        curtimetext=document.getElementById("curtimetext");
+        durtimetext=document.getElementById("durtimetext");
+        //add event listeners
+        playbtn.addEventListener("click",playPause,false);
+        seekslider.addEventListener("change",vidSeek,false);
+        vid.addEventListener("timeupdate",seektimeupdate,false);
+    }
+    window.onload=initializePlayer;
+
+    function playPause() {
+        if(vid.paused){
+            vid.play();
+            playbtn.innerHTML="Pause";
+        }
+        else{
+            vid.pause();
+            playbtn.innerHTML="Play";
+        }
+    }
+    function vidSeek() {
+        var seekto=vid.duration * (seekslider.value/100);
+        vid.currentTime=seekto;
+
+    }
+    function seektimeupdate() {
+        var nt=vid.currentTime * (100/vid.duration);
+        seekslider.value=nt;
+        var curmins=Math.floor(vid.currentTime/60);
+        var cursecs=Math.floor(vid.currentTime-curmins*60);
+        var durmins=Math.floor(vid.duration/60);
+        var dursecs=Math.round(vid.duration- durmins*60);
+        if(cursecs<10){cursecs="0"+cursecs;}
+        if(dursecs<10){dursecs="0"+dursecs;}
+        if(curmins<10){curmins="0"+curmins;}
+        if(durmins<10){durmins="0"+durmins;}
+        curtimetext.innerHTML=curmins+":"+cursecs;
+        durtimetext.innerHTML=durmins+":"+dursecs;
+
+    }
+    </script>-->
+
+    <script>
+        //$('.like_button').click(function()
+        function func(t){
+            console.log(t);
+            numLikes = parseInt(document.getElementById(t).value);
+            console.log(numLikes);
+            document.getElementById(t).value = numLikes + 1;
+            document.getElementById(t).innerHTML = "Like|"+(numLikes+1);
+        }
+
+    /*var postid;
+    postid = $(this).attr("data-post_id");
+    $.get('videos/like_post/', {post_id: postid}, function(data){
+               $('#like_count').html(data);
+               $('#likes').hide();
+               console.log(data);
+    });*/
+    </script>
+
+{% for subvideos in all_course.video_set.all %}
+    <!--<div id="video_player_box">-->
+    <video class="vid" controls height="350" width="570">
+        <source src="{{ subvideos.videofile.url }}" type="video/mp4"/>
+        </video>
+<form action="{% url 'videos:like_post'%}" method="POST">
+            <button  id = "{{subvideos.id}}" class="like_button" type="button" onclick="func({{subvideos.id}})" value=" {{ subvideos.likes }}">
+            Like|<strong id="like_count">{{ subvideos.likes }}</strong>
+            </button>
+</form>
+    <!--<div id="video_controls_bar">
+    <button id="playpausebtn">Play</button>
+    <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+        <span id="curtimetext"></span>/<span id="durtimetext"></span>
+    </div>
+    </div>-->
+    <br><br>
+{% endfor %}
+</br>
+{% endblock %}

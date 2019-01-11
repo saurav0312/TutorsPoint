@@ -1,0 +1,26 @@
+<title>Videos</title>
+<!--
+<div class="topnav" id="myTopnav">
+    <a title="About" draggable="true" href="{% url 'about:about' %}">About</a>
+    <a title="C" draggable="true" href="{% url 'videos:c' %}">C</a>
+    <a title="Logout" draggable="true" href="{% url 'logout:logout' %}">Logout</a>
+    <a title="Sign Up" draggable="true" href="{% url 'about:signup' %}">Sign Up</a>
+    <a title="Search" draggable="true" href="{% url 'videos:search' %}">Search</a>
+</div>
+-->
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{%  static 'about/style.css' %}"/>
+    <br>
+    <h3 align="center">C Videos</h3><br>
+    {% for all_cvideo in all_cvideo  %}
+        <video class="vid" controls height="360" width="640">
+        <source title="{{ all_cvideo.name }}" src="{{ all_cvideo.videofile.url }}" type="video/mp4">
+        </video>
+        &nbsp;&nbsp;
+        <br><br>
+{% endfor %}
+<div style="position: relative;width: 300px;height: 400px">
+    <div style="position: absolute;bottom: 5px">
+        <h3 class= "pos">All Rights Reserved 2017</h3>
+    </div>
+    </div>

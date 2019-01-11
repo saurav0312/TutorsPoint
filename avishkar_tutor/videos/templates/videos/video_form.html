@@ -1,0 +1,14 @@
+{% extends 'about/base.html' %}
+{% block title %}Add Video{% endblock %}
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{%  static 'about/style.css' %}"/>
+
+{% block body %}
+
+<br>
+<form action="" method="post" enctype="multipart/form-data">
+    {% include 'videos/form-template.html' %}
+    <br>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

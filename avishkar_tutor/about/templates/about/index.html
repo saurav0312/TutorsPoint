@@ -1,0 +1,17 @@
+{% extends 'about/base.html' %}
+{% block title %}About{% endblock %}
+{% block body %}
+
+{% if all_member %}
+    <h1 align="center">Welcome To The Website</h1>
+<p title="note">
+    This site is maintained by three students of B.Tech 2nd Year MNNIT.<br> In this website you can watch several tutorials about different programming languages.
+</p>
+    <h2><i>The team members are:</i></h2>
+    {% for member in all_member %}
+            <i><h3><a  style="text-decoration: none" class='names' href="{% url 'about:detail' member.id %}">{{ member.name }}</a></h3></i>
+    {% endfor %}
+{% else %}
+    <h3>No Member</h3>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+<title>Sign In</title>
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{%  static 'about/style.css' %}"/>
+<!--
+<ul class="ul-list">
+        <li class="list"><a title="Sign Up" draggable="true" href="{% url 'about:signup' %}">Sign Up</a></li>
+</ul>
+-->
+<form action="{% url 'about:register' %}" style="float: left;margin-left: 40%;margin-top: 15%">
+<input  class="sub" title="I am a teacher" type="submit" value="I am a teacher" style="height: 40px">
+<!--<div style="float: left;margin-left: 24%">
+<a style="text-decoration: none;" href="{% url 'about:register' %}"><h1>I am a teacher</h1></a>
+</div>-->
+</form>
+<form action="{% url 'about:student_login' %}" style="float: right;margin-right: 40%;margin-top: 15%">
+    <input class="sub" title="I am a student" type="submit" value="I am a student" style="height: 40px;" >
+<!--<div style="float: right;margin-right: 24%">
+<a style="text-decoration: none" href="{% url 'about:student_login' %}"><h1>I am a student</h1></a>
+</div>-->
+</form>
+<div id="footer">
+    <h4>Tutor's Point is optimized for learning,testing,and training.Tutorials, references are constantly reviewed to avoid errors,
+        but we cannot warrant full correctness of all content.While using this site, you agree to have read and accepted our
+        terms of use,cookie and privacy policy.<p align="center">&copy;All Rights Reserved 2017</p></h4>
+</div>

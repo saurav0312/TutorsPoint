@@ -1,0 +1,19 @@
+<title>Teacher Sign Up</title>
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{%  static 'about/style.css' %}"/>
+
+<ul class="ul-list">
+        <li class="list"><a title="Sign Up" draggable="true" href="{% url 'about:student_signup' %}">Sign Up</a></li>
+</ul>
+
+<h3><big><center>Teacher Sign Up</center></big></h3><br>
+<form method="POST">
+    {{ teacheruser.as_p }}
+    <button type="submit">Sign Up</button>
+</form>
+
+<div style="position: relative;width: 300px;height: 400px">
+    <div style="position: absolute;bottom: 5px">
+        <h3 class= "pos">All Rights Reserved 2017</h3>
+    </div>
+    </div>

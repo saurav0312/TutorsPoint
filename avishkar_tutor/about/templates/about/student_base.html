@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}Tutor{% endblock %}
+    </title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{%  static 'about/style.css' %}"/>
+
+</head>
+<body>
+<ul class="ul-list">
+    <li class="list"><a title="About" draggable="true" href="{% url 'about:student_about' %}">About</a></li>
+    <li class="list"><a title="Gallery" draggable="true" href="{% url 'gallery:gallery' %}">Gallery</a></li>
+    <li class="list"><a title="Programming Videos" draggable="true" href="{% url 'videos:student_course' %}">Programming Videos</a></li>
+    <li class="list"><a title="Contact" draggable="true" href="{% url 'contact:student_contact' %}">Contact</a></li>
+    <li style="float: right" class="list"><a title="Logout" draggable="true" href="{% url 'logout:logout' %}">Logout</a></li>
+    <li style="float: right" class="list"><a title="Search" draggable="true" href="{% url 'videos:student_search' %}">Search</a>
+    <!--<form style="padding-top: 6%" method="POST">
+        <input style="text-align: center;background-color: gainsboro" type="text" name="text"/>
+        <input type="submit" name="submit" value="Search"/>
+    </form>-->
+    </li>
+</ul>
+{% block body %}
+{% endblock %}
+<div style="position: relative;width: 300px;height: 400px">
+    <div style="position: absolute;bottom: 5px">
+        <h3 class= "pos">&copyAll Rights Reserved 2017</h3>
+    </div>
+    </div>
+</body>
+</html>
